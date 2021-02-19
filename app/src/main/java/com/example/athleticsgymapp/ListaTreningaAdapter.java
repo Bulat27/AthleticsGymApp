@@ -1,16 +1,19 @@
 package com.example.athleticsgymapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 
 import com.bumptech.glide.Glide;
 
@@ -45,10 +48,26 @@ public class ListaTreningaAdapter extends RecyclerView.Adapter<ListaTreningaAdap
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Nanaan", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context,JedanTreningActivity.class);
+                intent.putExtra("imeTreninga",treninzi.get(position).getImeTreninga());// Prosledjujem ime treninga preko intenta i na taj nacin cu naci konkretan trening
+                context.startActivity(intent);//Ovde nisi u activitiju pa zato nemas direktan pristup ovoj metodi, ali mozemo preko context varijable da je iskoristimo
+
             }
         });
-        
+
+        holder.kratkiOpis.setText(treninzi.get(position).getKratkiOpis());
+
+
+        if(treninzi.get(position).isProsireno()){
+            TransitionManager.beginDelayedTransition(holder.parent);//Dodaje animaciju na spustanje i podizanje
+            holder.rasirenRelLayout.setVisibility(View.VISIBLE);
+            holder.donjaStrelica.setVisibility(View.GONE);
+        }else{
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.rasirenRelLayout.setVisibility(View.GONE);
+            holder.donjaStrelica.setVisibility(View.VISIBLE);
+        }
+
         
     }
 
@@ -67,11 +86,38 @@ public class ListaTreningaAdapter extends RecyclerView.Adapter<ListaTreningaAdap
         private CardView parent;
         private ImageView slikaTreninga;
         private TextView imeTreninga;
+        private ImageView donjaStrelica, gornjaStrelica;
+        private RelativeLayout rasirenRelLayout;
+        private TextView kratkiOpis;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            parent = itemView.findViewById(R.id.parent);
+            parent = itemView.findViewById(R.id.roditelj);
             slikaTreninga=itemView.findViewById(R.id.slikaTreninga);
             imeTreninga=itemView.findViewById(R.id.imeTreninga);
+            donjaStrelica = itemView.findViewById(R.id.btnDonjaStrelica);
+            gornjaStrelica =itemView.findViewById(R.id.btnGornjaStrelica);
+            rasirenRelLayout=itemView.findViewById(R.id.rasirenRelativeLayout);
+            kratkiOpis = itemView.findViewById(R.id.kratkiOpisTreninga);
+
+            donjaStrelica.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Trening trening = treninzi.get(getAdapterPosition());
+                    trening.setProsireno(!trening.isProsireno());
+                    notifyItemChanged(getAdapterPosition());//Ovo ovde obavestava adapter da je doslo do promene, update-uje ga
+                }
+            });
+
+            gornjaStrelica.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Trening trening = treninzi.get(getAdapterPosition());
+                    trening.setProsireno(!trening.isProsireno());
+                    notifyItemChanged(getAdapterPosition());//Ovo ovde obavestava adapter da je doslo do promene, update-uje ga
+                }
+            });
+
         }
     }
 

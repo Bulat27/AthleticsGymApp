@@ -6,12 +6,14 @@ public class Trening {
     private String kratkiOpis;
     private String sveVezbe;
     private String urlSlike;
+    private boolean prosireno;
 
     public Trening(String imeTreninga, String kratkiOpis, String sveVezbe, String urlSlike) {
         this.imeTreninga = imeTreninga;
         this.kratkiOpis = kratkiOpis;
         this.sveVezbe = sveVezbe;
         this.urlSlike = urlSlike;
+        prosireno=false;
     }
 
 
@@ -45,5 +47,13 @@ public class Trening {
 
     public void setUrlSlike(String urlSlike) {
         this.urlSlike = urlSlike;
+    }
+
+    public boolean isProsireno() {
+        return prosireno;
+    }
+
+    public void setProsireno(boolean prosireno) {
+        this.prosireno = prosireno;
     }
 }

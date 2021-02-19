@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class OpcijeActivity extends AppCompatActivity {
 
-    private Button btnTreninzi, btnCenovnik;
+    private Button btnTreninzi, btnCenovnik, btnKalkulatorKalorija;
 
 
     @Override
@@ -21,6 +21,7 @@ public class OpcijeActivity extends AppCompatActivity {
         //OVAKO PO METODAMA RAZDOVJTE HANDLERE ZA SVAKI BUTTON DA NE BI BILO NAGURANO SVE OVDE
         handleTreninzi();
         handleCenovnik();
+        handleKalkulatorKalorija();
 
     }
 
@@ -28,6 +29,7 @@ public class OpcijeActivity extends AppCompatActivity {
     private void inicijalizacija(){
         btnTreninzi=findViewById(R.id.btnTreninziOpcije);
         btnCenovnik = findViewById(R.id.btnCenovnik);
+        btnKalkulatorKalorija =findViewById(R.id.btnKalkulatorKalorija);
     }
 
     private void handleTreninzi(){
@@ -50,6 +52,14 @@ public class OpcijeActivity extends AppCompatActivity {
         });
     }
 
-
+    private void handleKalkulatorKalorija(){
+        btnKalkulatorKalorija.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OpcijeActivity.this,KalkulatorKalorijaActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 }
