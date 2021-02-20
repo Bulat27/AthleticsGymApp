@@ -3,6 +3,7 @@ package com.example.athleticsgymapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+
+import static com.example.athleticsgymapp.MainActivity.korisnici;
 
 public class RegistracijaActivity extends AppCompatActivity {
 
@@ -31,6 +36,11 @@ public class RegistracijaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(jeUneoSve()){
 //TODO: Ovde treba oko onog log in dela da odradim, tj da napravim korisnika, unesem u listu i serijalizujem, ako ne bude radilo jer ne znamo baze, samo cemo zabraniti log in button
+
+                    unesiKorisnika();
+
+                    sacuvajKorisnikaUBazu();
+
                     Intent intent = new Intent(RegistracijaActivity.this,OpcijeActivity.class);
                     startActivity(intent);
                 }
@@ -99,5 +109,23 @@ public class RegistracijaActivity extends AppCompatActivity {
         btnRegistracija = findViewById(R.id.btnRegistrujSeRegistracija);
     }
 
+    private void unesiKorisnika(){
+        String kIme = korisnickoImeTxt.getText().toString();
+        String email = emailTxt.getText().toString();
+        String lozinka = lozinkaTxt.getText().toString();
+//        TODO:Zavrsi ovo za pol kad proveris dal radi lepo, to nije sad toliko ni bitno
+        String pol = "nepoznat";
+        Korisnik k = new Korisnik(kIme,email,lozinka,pol);
+        korisnici.add(k);
+    }
+    private void sacuvajKorisnikaUBazu(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences",MODE_PRIVATE);//Ovde isto bolje napraviti static promenljive za ove key-eve
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(korisnici);
+        editor.putString("lista korisnika",json);
+//        editor.apply();
+        editor.commit();
+    }
 
 }
