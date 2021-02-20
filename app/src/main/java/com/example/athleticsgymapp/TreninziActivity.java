@@ -27,8 +27,16 @@ public class TreninziActivity extends AppCompatActivity {
 
 //        ArrayList<Trening> treninzi = new ArrayList<>();
         treninzi = new ArrayList<>();
-        treninzi.add(new Trening("Trening za ruke","Nanana","Dobro","https://upload.wikimedia.org/wikipedia/commons/6/6a/Basketball_%28Ball%29.jpg"));
-        treninzi.add(new Trening("Trening za noge","Zezanje","Onako","https://upload.wikimedia.org/wikipedia/commons/6/6a/Basketball_%28Ball%29.jpg"));
+
+        String sveVezbePush="Benč: 4 serije 8-10 ponavljanja" + "\n" +"Kosi benč: 4 serije 8-10 ponavljanja" + "\n" +"Propadanja: 4-6 serija, 10-12 ponavljanja"+"\n"+"Ramena bučice: 4 serije 8 ponavljanja";
+        String sveVezbePull="Mrtvo dizanje: 4 serije 8-10 ponavljanja" + "\n" +"Lat mašina: 4 serije 8-10 ponavljanja" + "\n" +"Zgibovi: 4-6 serija, 10-12 ponavljanja"+"\n"+"Biceps bučice: 4 serije 8 ponavljanja";
+        String sveVezbeNoge="Iskorak bučice: 4 serije 8-10 ponavljanja" + "\n" +"Čučanj sa šipkom: 4 serije 8-10 ponavljanja" + "\n" +"Otkorak: 4-6 serija, 10-12 ponavljanja"+"\n"+"Listovi podizanje: 4 serije 8 ponavljanja";
+        String sveVezbeCardio="Čučanj skok: 4 serije 8-10 ponavljanja" + "\n" +"Kolena na grudi: 4 serije 8-10 ponavljanja" + "\n" +"Trčanje: 15 min"+"\n"+"Burpees: 4 serije 8 ponavljanja";
+
+        treninzi.add(new Trening("Push ruke","Trening za ramena, grudi i triceps",sveVezbePush,"https://media.self.com/photos/5a592463d2071c0c445ebbe0/1:1/w_960,h_960,c_limit/kids-at-the-gym-with-parents.jpg"));
+        treninzi.add(new Trening("Pull ruke","Trening za ledja i biceps",sveVezbePull,"https://www.muskimagazin.rs/storage/posts/gallery/2018/Jul/63322/rove-gym-prenosiva-sprava-koja-ce-vas-odrzavati-u-formi.jpg"));
+        treninzi.add(new Trening("Ultimate noge","Kompletan trening za donji deo tela ",sveVezbeNoge,"https://www.picktime.com/webassets/img/industries/gym.jpg"));
+        treninzi.add(new Trening("Explosive cardio","Trening za eksplozivnost i kondiciju",sveVezbeCardio,"https://fitathletic.com/wp-content/uploads/2019/02/Which-gym-machines-are-best-for-weight-loss.jpg"));
         adapter.setTreninzi(treninzi);
 
     }
