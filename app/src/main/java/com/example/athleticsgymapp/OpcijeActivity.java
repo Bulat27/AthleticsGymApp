@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class OpcijeActivity extends AppCompatActivity {
 
@@ -20,6 +21,9 @@ public class OpcijeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_opcije);
 
         inicijalizacija();
+        pozdraviKorisnika();
+
+
         //OVAKO PO METODAMA RAZDOVJTE HANDLERE ZA SVAKI BUTTON DA NE BI BILO NAGURANO SVE OVDE
         handleTreninzi();
         handleCenovnik();
@@ -108,5 +112,15 @@ public class OpcijeActivity extends AppCompatActivity {
                 builder.create().show();
             }
         });
+    }
+
+    private void pozdraviKorisnika(){
+        Intent intent = getIntent();
+        if(intent!=null){
+            String kIme =intent.getStringExtra("korisnickoIme");
+            if(kIme!=null){
+                Toast.makeText(this, "Dobrodošao/la" + kIme , Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

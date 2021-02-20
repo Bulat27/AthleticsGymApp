@@ -48,6 +48,7 @@ public class PrijavaActivity extends AppCompatActivity {
 //TODO:Prosledi ime intentom i pozdravi ga u sledecem aktivitiju
                     if(postojiUBazi()){
                         Intent intent =new Intent(PrijavaActivity.this,OpcijeActivity.class);
+                        intent.putExtra("korisnickoIme",txtKorisnickoIme.getText().toString());// Prosledjujem ime korisnika kako bih ga pozdravio
                         startActivity(intent);
                     }
                 }
