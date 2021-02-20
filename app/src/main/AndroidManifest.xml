@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AthleticsGymApp">
-        <activity android:name=".KalkulatorKalorijaActivity"></activity>
+        <activity android:name=".WebsiteActivity"></activity>
+        <activity android:name=".KalkulatorKalorijaActivity" />
         <activity android:name=".JedanTreningActivity" />
         <activity android:name=".CenovnikActivity" />
         <activity android:name=".TreninziActivity" />
