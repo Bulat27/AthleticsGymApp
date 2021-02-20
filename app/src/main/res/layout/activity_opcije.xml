@@ -67,11 +67,11 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBMIKalkulator" />
 
     <Button
-        android:id="@+id/btnKontakt"
+        android:id="@+id/btnFatGram"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Nesto2"
+        android:text="fat gram"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCenovnik" />
@@ -95,5 +95,5 @@
         android:text="Izloguj se"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnKontakt" />
+        app:layout_constraintTop_toBottomOf="@+id/btnFatGram" />
 </androidx.constraintlayout.widget.ConstraintLayout>

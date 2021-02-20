@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/collapsedRelLayout"
             android:id="@+id/expandedRelLayout"
-            android:visibility="gone"
+
             >
 
             <TextView

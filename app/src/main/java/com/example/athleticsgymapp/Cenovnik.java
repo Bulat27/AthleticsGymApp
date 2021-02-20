@@ -2,15 +2,15 @@ package com.example.athleticsgymapp;
 
 public class Cenovnik {
     private String vrstaPaketaCenovnika;
-    private int cena;
+    private String cena;
     private String url;
     private boolean isEsxpanded;
 
-    public Cenovnik(String vrstaPaketaCenovnika, int cena, String url) {
+    public Cenovnik(String vrstaPaketaCenovnika, String cena, String url, boolean isEsxpanded) {
         this.vrstaPaketaCenovnika = vrstaPaketaCenovnika;
         this.cena = cena;
         this.url = url;
-        isEsxpanded = false;
+        this.isEsxpanded = isEsxpanded;
     }
 
     public String getVrstaPaketaCenovnika() {
@@ -21,11 +21,11 @@ public class Cenovnik {
         this.vrstaPaketaCenovnika = vrstaPaketaCenovnika;
     }
 
-    public int getCena() {
+    public String getCena() {
         return cena;
     }
 
-    public void setCena(int cena) {
+    public void setCena(String cena) {
         this.cena = cena;
     }
 

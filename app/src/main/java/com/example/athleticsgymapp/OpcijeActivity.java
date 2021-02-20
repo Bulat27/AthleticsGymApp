@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class OpcijeActivity extends AppCompatActivity {
 
-    private Button btnTreninzi, btnCenovnik, btnKalkulatorKalorija, btnOKlubuOpcije;
+    private Button btnTreninzi, btnCenovnik, btnKalkulatorKalorija, btnOKlubuOpcije, btnFatGram;
 
 
     @Override
@@ -29,6 +29,7 @@ public class OpcijeActivity extends AppCompatActivity {
         handleCenovnik();
         handleKalkulatorKalorija();
         oNama();
+        handleFatGramCalculator();
 
     }
 
@@ -38,6 +39,7 @@ public class OpcijeActivity extends AppCompatActivity {
         btnCenovnik = findViewById(R.id.btnCenovnik);
         btnKalkulatorKalorija =findViewById(R.id.btnKalkulatorKalorija);
         btnOKlubuOpcije =findViewById(R.id.btnOKlubuOpcije);
+        btnFatGram = findViewById(R.id.btnFatGram);
     }
 
     private void handleTreninzi(){
@@ -122,5 +124,15 @@ public class OpcijeActivity extends AppCompatActivity {
                 Toast.makeText(this, "Dobrodošao/la" + kIme , Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public void handleFatGramCalculator(){
+        btnFatGram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OpcijeActivity.this,FatGramActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

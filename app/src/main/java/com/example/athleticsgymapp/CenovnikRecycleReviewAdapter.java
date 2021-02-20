@@ -55,8 +55,7 @@ public class CenovnikRecycleReviewAdapter extends RecyclerView.Adapter<CenovnikR
                 Toast.makeText(mContext, cenovnici.get(position).getVrstaPaketaCenovnika() + " uspešno izabran",Toast.LENGTH_SHORT).show();
             }
         });
-
-       /* holder.txtCena.setText(cenovnici.get(position).getCena());
+        holder.txtCena.setText("Cena: " + cenovnici.get(position).getCena()+"din");
 
         if(cenovnici.get(position).isEsxpanded()){
             TransitionManager.beginDelayedTransition(holder.parent);
@@ -68,7 +67,7 @@ public class CenovnikRecycleReviewAdapter extends RecyclerView.Adapter<CenovnikR
             holder.expandedRelativeLayout.setVisibility(View.GONE);
             holder.downArrow.setVisibility(View.VISIBLE);
         }
-        */
+
 
     }
 
@@ -87,9 +86,9 @@ public class CenovnikRecycleReviewAdapter extends RecyclerView.Adapter<CenovnikR
         private ImageView imgTreningUTeretani;
         private TextView txtTreningUteretani;
 
-       /* private ImageView downArrow, upArrow;
+        private ImageView downArrow, upArrow;
         private RelativeLayout expandedRelativeLayout;
-        private TextView txtCena;*/
+        private TextView txtCena;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,7 +96,7 @@ public class CenovnikRecycleReviewAdapter extends RecyclerView.Adapter<CenovnikR
             imgTreningUTeretani = itemView.findViewById(R.id.slikaTreningUTeretani);
             txtTreningUteretani = itemView.findViewById(R.id.txtTreningUTeretani);
 
-            /*downArrow = itemView.findViewById(R.id.btnDownArrow);
+            downArrow = itemView.findViewById(R.id.btnDownArrow);
             upArrow = itemView.findViewById(R.id.btnUpArrow);
             expandedRelativeLayout = itemView.findViewById(R.id.expandedRelLayout);
             txtCena = itemView.findViewById(R.id.CenaText);
@@ -120,7 +119,7 @@ public class CenovnikRecycleReviewAdapter extends RecyclerView.Adapter<CenovnikR
                     notifyItemChanged(getAdapterPosition());
                 }
             });
-            */
+
         }
     }
 }
