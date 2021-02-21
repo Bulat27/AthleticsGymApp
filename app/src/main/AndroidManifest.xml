@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AthleticsGymApp">
-        <activity android:name=".FatGramActivity"></activity>
+        <activity android:name=".bmiActivity"></activity>
+        <activity android:name=".FatGramActivity" />
         <activity android:name=".WebsiteActivity" />
         <activity android:name=".KalkulatorKalorijaActivity" />
         <activity android:name=".JedanTreningActivity" />
