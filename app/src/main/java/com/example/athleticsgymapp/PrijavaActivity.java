@@ -38,7 +38,7 @@ public class PrijavaActivity extends AppCompatActivity {
         warningLozinka=findViewById(R.id.warningLozinkaLogIn);
     }
 
-//    TODO:Ovo ovde promeni, sad samo testiram
+
     private void handlujBtn(){
         btnPrijava.setOnClickListener(new View.OnClickListener() {
             @Override

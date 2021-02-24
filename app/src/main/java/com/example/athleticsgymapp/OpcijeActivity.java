@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class OpcijeActivity extends AppCompatActivity {
 
-    private Button btnTreninzi, btnCenovnik, btnKalkulatorKalorija, btnOKlubuOpcije, btnFatGram,btnBMIKalkulator;
+    private Button btnTreninzi, btnCenovnik, btnKalkulatorKalorija, btnOKlubuOpcije, btnFatGram,btnBMIKalkulator ,izlogujSe;
 
 
     @Override
@@ -31,6 +31,7 @@ public class OpcijeActivity extends AppCompatActivity {
         oNama();
         handleFatGramCalculator();
         handleBMICalculator();
+        handleIzlogujSe();
 
     }
 
@@ -42,6 +43,7 @@ public class OpcijeActivity extends AppCompatActivity {
         btnOKlubuOpcije =findViewById(R.id.btnOKlubuOpcije);
         btnFatGram = findViewById(R.id.btnFatGram);
         btnBMIKalkulator = findViewById(R.id.btnBMIKalkulator);
+        izlogujSe =findViewById(R.id.izlogujSeOpcije);
     }
 
     private void handleTreninzi(){
@@ -123,7 +125,7 @@ public class OpcijeActivity extends AppCompatActivity {
         if(intent!=null){
             String kIme =intent.getStringExtra("korisnickoIme");
             if(kIme!=null){
-                Toast.makeText(this, "Dobrodošao/la" + kIme , Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Dobrodošao/la " + kIme , Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -146,4 +148,16 @@ public class OpcijeActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void handleIzlogujSe(){
+        izlogujSe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OpcijeActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
 }

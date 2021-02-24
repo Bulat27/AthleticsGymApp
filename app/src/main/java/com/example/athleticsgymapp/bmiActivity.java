@@ -47,21 +47,21 @@ public class bmiActivity extends AppCompatActivity {
 
         String bmiLabel="";
         if (Float.compare(bmi, 15f)<=0){
-              bmiLabel="neuhranjen";
+              bmiLabel="-neuhranjen";
         }else if (Float.compare(bmi, 15f)>0 && Float.compare(bmi, 16f)<=0){
-            bmiLabel="veoma mrsav";
+            bmiLabel="-veoma mršav";
         }else if (Float.compare(bmi, 16f)>0 && Float.compare(bmi, 18.5f)<=0){
-            bmiLabel="mrsav";
+            bmiLabel="-mršav";
         }else if (Float.compare(bmi, 18.5f)>0 && Float.compare(bmi, 20f)<=0){
-            bmiLabel="normalan";
+            bmiLabel="-normalan";
         }else if (Float.compare(bmi, 20f)>0 && Float.compare(bmi, 25f)<=0){
-            bmiLabel="puniji";
+            bmiLabel="-puniji";
         }else if (Float.compare(bmi, 25f)>0 && Float.compare(bmi, 30f)<=0){
-            bmiLabel="debeo";
+            bmiLabel="-debeo";
         }else if (Float.compare(bmi, 30f)>0 && Float.compare(bmi, 35f)<=0){
-            bmiLabel="gojazan";
+            bmiLabel="-gojazan";
         }else if (Float.compare(bmi, 35f)>0 && Float.compare(bmi, 40f)<=0){
-            bmiLabel="smrtno ugrozen gojaznoscu";
+            bmiLabel="-smrtno ugrožen gojaznošću";
         }
         bmiLabel = bmi + '\n' + bmiLabel;
         rezultatbmi.setText(bmiLabel);
